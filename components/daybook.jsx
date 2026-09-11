@@ -77,7 +77,8 @@ const subtitles = {
 
 export default function Daybook({ children }) {
   const store = useWorkspace();
-  const path = usePathname();
+  // The static export uses trailing slashes, so strip it before parsing.
+  const path = usePathname().replace(/\/+$/, "") || "/";
   const router = useRouter();
   const projectId = path.startsWith("/projects/")
     ? decodeURIComponent(path.split("/")[2])

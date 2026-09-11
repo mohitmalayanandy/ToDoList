@@ -20,7 +20,7 @@ import {
 import { useWorkspace } from "../../store/taskStore";
 import { filteredTasks } from "../../lib/workspace";
 export const navigation = [
-  ["inbox", "Inbox", Inbox, "/"],
+  ["inbox", "Inbox", Inbox, "/inbox"],
   ["today", "Today", Sun, "/today"],
   ["tomorrow", "Tomorrow", CalendarDays, "/tomorrow"],
   ["upcoming", "Upcoming", CalendarRange, "/upcoming"],

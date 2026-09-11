@@ -18,6 +18,25 @@ npm run build
 npm start
 ```
 
+## Deploy to GitHub Pages
+
+Pushing to `main` builds a static export and publishes it via
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). One-time setup:
+in the repository, go to **Settings → Pages** and set **Source** to
+**GitHub Actions**.
+
+The site is served from https://mohitmalayanandy.github.io/ToDoList, so
+`next.config.js` applies `basePath: "/ToDoList"` when `GITHUB_ACTIONS` is set.
+Local `npm run dev` stays at the root. If the repository is renamed, update
+`repo` in that file.
+
+Because Pages only serves files, there is no server: `/` renders Today in place
+rather than redirecting, and only the three seeded projects are prerendered.
+Projects created in the browser get random ids, so their URLs fall through to
+`404.html` — which boots the same app and resolves the id from the URL, so the
+project still loads (the HTTP status is 404). `public/.nojekyll` keeps Pages
+from stripping the `_next` asset directory.
+
 ## Features
 
 - Add tasks with Enter or the Add task button.
