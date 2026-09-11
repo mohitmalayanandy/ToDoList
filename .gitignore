@@ -1,0 +1,10 @@
+# macOS filesystem metadata
+.DS_Store
+._*
+node_modules/
+.next/
+out/
+coverage/
+.env*
+!.env.example
+npm-debug.log*
